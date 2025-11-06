@@ -1,80 +1,46 @@
-# Tilpassingsguide for mal-arduino-biblioteket
+# mal-arduino-bibliotek
 
-Denne veiledningen hjelper deg å ta utgangspunkt i biblioteket og koble det til dine egne sensorer. Innholdet er strukturert slik at du raskt kommer i gang, samtidig som du får en dypere forståelse av hvordan koden er bygget opp.
+Dette prosjektet viser hvordan man kan strukturere flere Arduino-sensorbibliotek med en felles baseklasse. Koden og kommentarene er på norsk og laget som undervisningsmateriell for Høgskolen i Østfold.
 
-## Oversikt
+## Mappestruktur
 
-Prosjektet består i hovedsak av tre filer:
+```
+/libraries/
+  BaseSensor/
+  LDRSensor/
+  PIRSensor/
+  BME280Sensor/
+  ENS160Sensor/
+  RFIDReader/
+  KeypadInput/
+/examples/
+  MultiSensorDemo/
+```
 
-| Fil | Rolle |
-| --- | --- |
-| `main.ino` | Skjelettskissen som initialiserer biblioteket og kjører sensorlogikk. |
-| `sensor.h` | Grensesnittet og datatypene som beskriver hvordan en sensor skal oppføre seg. |
-| `sensor.cpp` | Standardimplementasjonen av sensorlogikken, inkludert eksempel på avlesing og behandling. |
+Hvert bibliotek ligger i egen mappe med `src/` for kildekode og `examples/` for demo-skisser. I tillegg finnes et kombinert eksempel som viser polymorf bruk av `BaseSensor`.
 
-For å tilpasse prosjektet til egne sensorer justerer du hovedsakelig `sensor.h` og `sensor.cpp`, og sørger for at `main.ino` initialiserer de korrekte sensorinstansene.
+## Komme i gang
 
-## 1. Forstå sensorgrensesnittet
+1. Pakk biblioteket som `.zip` eller kopier mappestrukturen direkte inn i `Arduino/libraries/`.
+2. Installer eksterne avhengigheter via Library Manager:
+   - Adafruit BME280 Library
+   - ENS160 (for eksempel SparkFun-implementasjonen)
+   - MFRC522
+   - Keypad
+3. Åpne ønsket eksempel i Arduino IDE og velg riktige port/board (Arduino UNO).
+4. Last opp og observer seriell monitor på 9600 baud.
 
-I `sensor.h` finner du strukturene og funksjonsprototypene som definerer hvordan en sensor skal initialiseres, avleses og eventuelt kalibreres. Start med å:
+## Innhold
 
-1. Åpne `sensor.h` og se på datastrukturen(e) som beskriver en sensor.
-2. Identifisere hvilke felt du trenger for din sensor (for eksempel pinnetilkoblinger, kalibreringskonstanter eller tidsintervaller).
-3. Legge til nye felter dersom sensoren din krever det. Husk å dokumentere dem med kommentarer slik at det er tydelig hva de brukes til.
+- `BaseSensor` – grunnklassen for alle sensorer.
+- `LDRSensor` – analog lysmåler.
+- `PIRSensor` – digital bevegelsessensor med LED-indikasjon.
+- `BME280Sensor` – temperatur, fuktighet og trykk via I2C.
+- `ENS160Sensor` – luftkvalitetsmålinger (AQI og CO₂-ekvivalent).
+- `RFIDReader` – leser MFRC522-kort og demonstrerer UID-sammenligning med `memcmp`.
+- `KeypadInput` – håndterer matrise-tastatur og brukes sammen med RFID i et tilgangskontroll-eksempel.
+- `examples/MultiSensorDemo` – demonstrerer polymorfisme ved å behandle alle sensorene gjennom `BaseSensor`-peker.
 
-## 2. Implementer sensorlogikken
+## Videre arbeid
 
-Når grensesnittet er klart, oppdaterer du `sensor.cpp`:
-
-1. Gå til funksjonen som initialiserer sensoren (typisk `initSensor`). Sett opp riktige pinmodes, I²C/SPI-konfigurasjon eller annen init-logikk du trenger.
-2. Tilpass avlesingsfunksjonen (`readSensor` eller tilsvarende). Her bruker du Arduino-API-et for å hente data fra sensoren, normalisere verdiene og fylle ut strukturen definert i `sensor.h`.
-3. Legg inn eventuell feilbehandling. Sjekk for gyldige målinger, håndter avvik og gi en strukturert returverdi (bool, enum eller feilkode).
-4. Dersom du trenger filtrering, glatting eller konvertering til fysiske enheter (°C, %, m/s²), gjør det her.
-
-> **Tips:** Start med en enkel implementasjon som bare returnerer rådata. Når du ser at avlesningen fungerer, kan du legge til kalibrering og videre signalbehandling.
-
-## 3. Oppdater hovedskissen (`main.ino`)
-
-Etter at sensorlogikken er implementert, sørg for at `main.ino` bruker den nye sensoren korrekt:
-
-1. Opprett og initialiser sensorobjektet i `setup()`.
-2. Kall avlesingsfunksjonen i `loop()` med ønsket intervall. Bruk `millis()` for å unngå blokkerende `delay()` hvis du trenger flere samtidige oppgaver.
-3. Legg til logging via `Serial`, eller send data videre til skjerm, nettverk eller annet grensesnitt.
-4. Test med seriell monitor for å bekrefte at dataene ser riktige ut.
-
-## 4. Konfigurasjon og gjenbruk
-
-For å gjøre biblioteket fleksibelt anbefales det å:
-
-- Samle konfigurasjonsverdier (pinnenumre, terskler, kalibreringsfaktorer) i én struktur eller i `#define`/`constexpr`-konstanter.
-- Dokumentere enhver sensor-spesifikk forskjell direkte i koden og i denne README-en.
-- Vurdere å bruke `#ifdef` eller separate klasser dersom du skal støtte flere sensortyper i samme prosjekt.
-
-## 5. Testing og feilsøking
-
-1. Test én endring om gangen. Start med å bekrefte at sensoren gir livstegn (for eksempel med en enkel `analogRead` eller `digitalRead`).
-2. Bruk seriell logging (`Serial.print`) for å spore avvik.
-3. Hvis du bruker kommunikasjon som I²C eller SPI, sjekk med et verktøy som I²C-scanner for å bekrefte adressen.
-4. Dokumenter funn og justeringer slik at de er enkle å gjenbruke senere.
-
-## 6. Utvidelse
-
-Når én sensor fungerer, kan du utvide til flere:
-
-- Opprett en egen struktur og implementasjon for hver sensortype, eller lag et felles abstrakt grensesnitt som de ulike sensorene implementerer.
-- Bruk `std::vector` (med støtte fra ArduinoSTL) eller enkle arrays for å lagre flere instanser.
-- Sørg for at `loop()` håndterer avlesing og oppdatering for alle sensorene uten å blokkeres.
-
-## 7. Ressurser
-
-- [Arduino Reference](https://www.arduino.cc/reference/en/) – Offisiell dokumentasjon for funksjoner og API-er.
-- Databladet til sensoren din – Inneholder nødvendige timing-, spennings- og kommunikasjonsdetaljer.
-- Forum og open source-prosjekter for den aktuelle sensoren – Gode kilder for eksempelimplementasjoner.
-
-## 8. Forslag til videre dokumentasjon
-
-- Lag en egen seksjon i README for hver sensor du støtter, med koblingsskjema og konfigurering.
-- Opprett en `docs/`-mappe med diagrammer eller tilkoblingsskisser (for eksempel laget i Fritzing).
-- Dokumenter endringer i `CHANGELOG.md` hvis biblioteket skal deles med andre.
-
-Med denne veiledningen skal du kunne tilpasse biblioteket til de fleste sensorer. Husk å iterere: små trinn og jevn testing gir best resultat. Lykke til!
+Utvid bibliotekene med flere sensorer ved å arve fra `BaseSensor` og følge samme struktur. Husk å kommentere på norsk og forklare alle faste verdier slik at studenter enkelt kan følge koden.
