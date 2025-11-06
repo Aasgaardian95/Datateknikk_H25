@@ -58,7 +58,34 @@ void loop() {
     } else {
       Serial.println("PIN er full. Trykk # for å bekrefte eller * for å slette.");
     }
-  }
 
+    void leggTilSiffer(char tast) {
+      if (_indeks < PIN_LENGDE - 1) {
+        _inndata[_indeks++] = tast;
+        Serial.print("Tast registrert (");
+        Serial.print(_indeks);
+        Serial.println(" sifre lagret)");
+      } else {
+        Serial.println("PIN er full. Trykk # for å bekrefte eller * for å slette.");
+      }
+    }
+};
+
+// Enkel PIN-kode for demo
+const char RIKTIG_PIN[] = "1234";
+PinTilgangskontroll<sizeof(RIKTIG_PIN)> tilgangskontroll(tastatur, RIKTIG_PIN);
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) {
+    ;
+  }
+  Serial.println("Taste inn PIN-kode. Bruk * for å slette, # for å bekrefte.");
+
+  tilgangskontroll.begin();
+}
+
+void loop() {
+  tilgangskontroll.oppdater();
   delay(100);
 }
