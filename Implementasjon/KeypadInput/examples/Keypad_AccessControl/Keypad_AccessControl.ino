@@ -15,72 +15,39 @@ const byte KOLONNE_PINNER[ANTALL_KOLONNER] = {6, 7, 8, A1};
 
 KeypadInput tastatur(RAD_PINNER, KOLONNE_PINNER, ANTALL_RADER, ANTALL_KOLONNER, KEYMAP);
 
-// Enkel PIN-kode for demo
-const char RIKTIG_PIN[] = "1234";
-char inndata[sizeof(RIKTIG_PIN)] = {'\0'};
-byte indeks = 0;
-
-void nullstillInndata() {
-  indeks = 0;
-  memset(inndata, 0, sizeof(inndata));
-}
-
-void setup() {
-  Serial.begin(9600);
-  while (!Serial) {
-    ;
-  }
-  Serial.println("Taste inn PIN-kode. Bruk * for å slette, # for å bekrefte.");
-
-  tastatur.begin();
-}
-
-void loop() {
-  tastatur.read();
-
-  char tast = tastatur.getKey();
-  if (tast) {
-    if (tast == '*') {
-      nullstillInndata();
-      Serial.println("PIN tilbakestilt.");
-    } else if (tast == '#') {
-      if (strcmp(inndata, RIKTIG_PIN) == 0) {
-        Serial.println("Tilgang gitt – riktig PIN!");
-      } else {
-        Serial.println("Feil PIN. Prøv igjen.");
-      }
-      nullstillInndata();
-    } else if (indeks < sizeof(inndata) - 1) {
-      inndata[indeks++] = tast;
-      Serial.print("Tast registrert (");
-      Serial.print(indeks);
-      Serial.println(" sifre lagret)");
-    } else {
-      Serial.println("PIN er full. Trykk # for å bekrefte eller * for å slette.");
-    }
-
-    void leggTilSiffer(char tast) {
-      if (_indeks < PIN_LENGDE - 1) {
-        _inndata[_indeks++] = tast;
-        Serial.print("Tast registrert (");
-        Serial.print(_indeks);
-        Serial.println(" sifre lagret)");
-      } else {
-        Serial.println("PIN er full. Trykk # for å bekrefte eller * for å slette.");
-      }
-    }
-};
-
-// Enkel PIN-kode for demo
+// Enkel PIN-kode for demo – kan tilpasses fritt
 const char RIKTIG_PIN[] = "1234";
 PinTilgangskontroll<sizeof(RIKTIG_PIN)> tilgangskontroll(tastatur, RIKTIG_PIN);
 
+void pinGodkjent() {
+  Serial.println("Tilgang gitt – riktig PIN!");
+}
+
+void pinAvvist() {
+  Serial.println("Feil PIN. Prøv igjen.");
+}
+
+void pinProgresjon(const char*, byte lengde) {
+  if (lengde == 0) {
+    Serial.println("PIN tilbakestilt.");
+    return;
+  }
+
+  Serial.print("Tast registrert (");
+  Serial.print(lengde);
+  Serial.println(" sifre lagret)");
+}
+
 void setup() {
   Serial.begin(9600);
   while (!Serial) {
     ;
   }
   Serial.println("Taste inn PIN-kode. Bruk * for å slette, # for å bekrefte.");
+
+  tilgangskontroll.setSuksessCallback(pinGodkjent);
+  tilgangskontroll.setFeilCallback(pinAvvist);
+  tilgangskontroll.setProgresjonCallback(pinProgresjon);
 
   tilgangskontroll.begin();
 }
