@@ -1,7 +1,6 @@
 #include <Arduino.h>
-#include <SparkFunBME280.h>
+#include "SparkFunBME280.h"
 #include <Wire.h>
-
 BME280 mySensor;
 
 void setup()
