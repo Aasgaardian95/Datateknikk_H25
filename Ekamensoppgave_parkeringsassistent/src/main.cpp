@@ -1,18 +1,40 @@
 #include <Arduino.h>
+#include <SparkFunBME280.h>
+#include <Wire.h>
 
-// put function declarations here:
-int myFunction(int, int);
+BME280 mySensor;
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println("Reading basic values from BME280");
+
+  Wire.begin();
+
+  if (mySensor.beginI2C() == false) //Begin communication over I2C
+  {
+    Serial.println("The sensor did not respond. Please check wiring.");
+    while(1); //Freeze
+  }
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-}
+void loop()
+{
+  Serial.print("Humidity: ");
+  Serial.print(mySensor.readFloatHumidity(), 0);
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  Serial.print(" Pressure: ");
+  Serial.print(mySensor.readFloatPressure(), 0);
+
+  Serial.print(" Alt: ");
+  //Serial.print(mySensor.readFloatAltitudeMeters(), 1);
+  Serial.print(mySensor.readFloatAltitudeFeet(), 1);
+
+  Serial.print(" Temp: ");
+  //Serial.print(mySensor.readTempC(), 2);
+  Serial.print(mySensor.readTempF(), 2);
+
+  Serial.println();
+
+  delay(50);
 }
