@@ -12,7 +12,7 @@ void setup()
 
   if (mySensor.beginI2C() == false) //Begin communication over I2C
   {
-    Serial.println("The sensor did not respond. Please check wiring.");
+    Serial.println("The sensor did not respond. Please check wiring!");
     while(1); //Freeze
   }
 }
