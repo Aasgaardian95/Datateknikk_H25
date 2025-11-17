@@ -1,4 +1,4 @@
-# BME280Sensor
+## BME280Sensor
 
 ## Beskrivelse
 `BME280Sensor` henter temperatur, luftfuktighet og lufttrykk fra Bosch BME280-modulen via I²C. Klassen arver fra `BaseSensor`, slik at klimadata kan behandles med samme API som de andre sensorene i prosjektet.

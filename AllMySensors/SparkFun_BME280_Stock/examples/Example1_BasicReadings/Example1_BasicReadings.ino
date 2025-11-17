@@ -1,16 +1,4 @@
 /*
-  Get basic environmental readings from the BME280
-  By: Nathan Seidle
-  SparkFun Electronics
-  Date: March 9th, 2018
-  License: This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
-
-  Feel like supporting our work? Buy a board from SparkFun!
-  https://www.sparkfun.com/products/14348 - Qwiic Combo Board
-  https://www.sparkfun.com/products/13676 - BME280 Breakout Board
-  
-  This example shows how to read humidity, pressure, and current temperature from the BME280 over I2C.
-
   Hardware connections:
   BME280 -> Arduino
   GND -> GND
@@ -20,8 +8,8 @@
 */
 
 #include <Wire.h>
-
 #include "SparkFunBME280.h"
+
 BME280 mySensor;
 
 void setup()
