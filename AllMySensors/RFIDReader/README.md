@@ -1,9 +1,9 @@
 # RFIDReader
 
-## 📘 Beskrivelse
+## Beskrivelse
 `RFIDReader` styrer MFRC522-modulen for å lese RFID-kort. Klassen arver fra `BaseSensor` og eksponerer metoder for å sjekke om et kort er til stede og hente UID som tekst eller bytearray.
 
-## 📁 Struktur
+## Struktur
 ```
 .
 ├── README.md
@@ -15,14 +15,14 @@
     └── RFIDReader.h
 ```
 
-### ⚙️ Filoversikt
+## Filoversikt
 | Fil | Type | Beskrivelse |
 | --- | --- | --- |
 | `src/RFIDReader.h` | Header | Definerer klassen med hjelpefunksjoner for UID som streng og byte-array. |
 | `src/RFIDReader.cpp` | Implementasjon | Initialiserer SPI, sjekker etter nye kort og buffer UID når et kort registreres. |
 | `examples/RFIDReader_Example/RFIDReader_Example.ino` | Eksempel | Viser enkel tilgangskontroll med autorisert UID og seriell feedback. |
 
-## 🧠 Bruk
+## Bruk
 ```cpp
 #include <Arduino.h>
 #include <SPI.h>
@@ -69,19 +69,19 @@ void loop() {
 ```
 Seriellmonitoren viser UID-en i heks og forteller om kortet er godkjent. Fjernes kortet, kommer meldingen «[RFID] Kort fjernet.» fra biblioteket.
 
-## 🔌 Tilkobling
+## Tilkobling
 - **SS/SDA** til digital pinne 10 (kan endres i konstruktøren).
 - **RST** til pinne 9.
 - **MOSI** til pinne 11, **MISO** til pinne 12, **SCK** til pinne 13 på Arduino Uno (SPI-standardpinner).
 - Strømforsyning: 3.3 V og GND.
 - Husk å holde kortet i ro noen sekunder for stabil lesing.
 
-## 🧱 Avhengigheter
+## Avhengigheter
 - Arduino core (`Arduino.h`, `SPI.h`)
 - `BaseSensor`-biblioteket
 - `MFRC522`-biblioteket for RFID-driver
 
-## 👩‍🏫 For undervisning
+## For undervisning
 Brukes til å diskutere:
 - SPI-kommunikasjon og forskjellen mellom master/slave-oppsett.
 - Sikkerhet og autentisering via UID sammen med andre sensorer (f.eks. tastatur).

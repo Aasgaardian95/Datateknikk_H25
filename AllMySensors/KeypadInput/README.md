@@ -1,11 +1,11 @@
 # KeypadInput
 
-## 📘 Beskrivelse
+## Beskrivelse
 `KeypadInput` håndterer et 4x4 matrise-tastatur ved hjelp av `Keypad`-biblioteket. Klassen arver fra `BaseSensor` slik at tastetrykk kan behandles med samme mønster som øvrige sensorer, inkludert logging gjennom `printDebug()`.
 
 Biblioteket inkluderer også hjelpeklassen `PinTilgangskontroll` som kan utføre PIN-validering direkte i biblioteket, mens brukerdefinerte reaksjoner implementeres i `.ino`-filen gjennom callback-funksjoner.
 
-## 📁 Struktur
+## Struktur
 ```
 .
 ├── README.md
@@ -17,14 +17,14 @@ Biblioteket inkluderer også hjelpeklassen `PinTilgangskontroll` som kan utføre
     └── KeypadInput.h
 ```
 
-### ⚙️ Filoversikt
+## Filoversikt
 | Fil | Type | Beskrivelse |
 | --- | --- | --- |
 | `src/KeypadInput.h` | Header | Definerer tastaturklassen med dynamisk lagring av rad- og kolonnepinner. |
 | `src/KeypadInput.cpp` | Implementasjon | Initialiserer `Keypad`-objektet og skriver tastetrykk til seriellmonitor. |
 | `examples/Keypad_AccessControl/Keypad_AccessControl.ino` | Eksempel | Viser PIN-basert tilgang der PIN-sjekk håndteres av biblioteket og tilpasses via callbacks. |
 
-## 🧠 Bruk
+## Bruk
 ```cpp
 #include <Arduino.h>
 #include <KeypadInput.h>
@@ -86,18 +86,18 @@ void loop() {
 ```
 Programmet gir enkel seriell feedback. Stjerne sletter inndata, #-tasten validerer mot PIN-koden, og alle reaksjoner håndteres i `.ino`-filen gjennom callback-funksjoner.
 
-## 🔌 Tilkobling
+## Tilkobling
 - Radpinner: 2, 3, 4, 5.
 - Kolonnepinner: 6, 7, 8, A1.
 - Tastaturet krever ingen ekstra motstander; koble en radpinne og kolonnepinne til hver tast.
 - Eksempelet demonstrerer enkel PIN-verifisering uten eksterne sensorer.
 
-## 🧱 Avhengigheter
+## Avhengigheter
 - Arduino core (`Arduino.h`)
 - `BaseSensor`-biblioteket
 - `Keypad`-biblioteket
 
-## 👩‍🏫 For undervisning
+## For undervisning
 Temaer som kan belyses:
 - Matriseskanning og hvordan `Keypad`-biblioteket forenkler logikken.
 - Enkel autorisasjon basert på tastaturet alene.

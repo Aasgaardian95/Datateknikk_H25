@@ -1,9 +1,9 @@
 # LDRSensor
 
-## 📘 Beskrivelse
+## Beskrivelse
 `LDRSensor` leser lysstyrke med en lysavhengig motstand (LDR). Biblioteket arver fra `BaseSensor`, slik at metoder som `begin()`, `read()` og `printDebug()` kan brukes på samme måte som for andre sensorer.
 
-## 📁 Struktur
+## Struktur
 ```
 .
 ├── README.md
@@ -15,14 +15,14 @@
     └── LDRSensor.h
 ```
 
-### ⚙️ Filoversikt
+## Filoversikt
 | Fil | Type | Beskrivelse |
 | --- | --- | --- |
 | `src/LDRSensor.h` | Header | Deklarerer LDR-klassen med pinnekonfigurasjon og metode for å hente siste verdi. |
 | `src/LDRSensor.cpp` | Implementasjon | Initialiserer analogt inngangspin og skriver målinger til seriellmonitor. |
 | `examples/LDRSensor_Example/LDRSensor_Example.ino` | Eksempel | Viser grunnleggende bruk av biblioteket for å lese lysnivå hvert sekund. |
 
-## 🧠 Bruk
+## Bruk
 ```cpp
 #include <Arduino.h>
 #include <LDRSensor.h>
@@ -47,16 +47,16 @@ void loop() {
 ```
 Seriellmonitoren skriver verdier mellom 0 og 1023, der høye tall betyr mye lys. Beveg hånden over LDR-en eller bruk en lommelykt for å se tydelige endringer.
 
-## 🔌 Tilkobling
+## Tilkobling
 - LDR og 10 kΩ motstand kobles som spenningsdeler mellom 5 V og GND.
 - Midtpunktet mellom LDR og motstand kobles til analog inngang A0.
 - Sørg for stabile tilkoblinger for å unngå støy i målingene.
 
-## 🧱 Avhengigheter
+## Avhengigheter
 - Arduino core (`Arduino.h`)
 - `BaseSensor`-biblioteket
 
-## 👩‍🏫 For undervisning
+## For undervisning
 Temaer som kan dekkes:
 - Analog måling med `analogRead()` og spenningsdelere.
 - Hvordan sensorverdier kan tolkes og visualiseres i sanntid.

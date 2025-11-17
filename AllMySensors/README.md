@@ -1,9 +1,9 @@
 # Sensorbiblioteker
 
-## 📘 Oversikt
+## Oversikt
 Denne katalogen samler alle Arduino-bibliotekene som brukes i undervisningsprosjektet. Hvert bibliotek arver fra `BaseSensor` og følger samme struktur med en `src/`-mappe for kode og en `examples/`-mappe med minst ett komplett `.ino`-program. Les README-filen i hvert bibliotek for detaljert bruk, koblingsskjema og læringsmål.
 
-## 📁 Struktur
+## Struktur
 ```
 .
 ├── BME280Sensor/
@@ -15,7 +15,7 @@ Denne katalogen samler alle Arduino-bibliotekene som brukes i undervisningsprosj
 └── RFIDReader/
 ```
 
-### 📚 Biblioteksliste
+## Biblioteksliste
 | Bibliotek | Formål | Eksempelfil |
 | --- | --- | --- |
 | `BME280Sensor` | Leser temperatur, fuktighet og trykk over I²C. | `examples/BME280Sensor_Example/BME280Sensor_Example.ino` |
@@ -26,14 +26,14 @@ Denne katalogen samler alle Arduino-bibliotekene som brukes i undervisningsprosj
 | `PIRSensor` | Registrerer bevegelse fra en PIR-sensor og styrer indikator-LED. | `examples/PIRSensor_Example/PIRSensor_Example.ino` |
 | `RFIDReader` | Styrer MFRC522 RFID-leser via SPI og eksponerer kortets UID. | `examples/RFIDReader_Example/RFIDReader_Example.ino` |
 
-## 🔧 Bruk av bibliotekene
+## Bruk av bibliotekene
 1. Kopier mappen til `Documents/Arduino/libraries/`.
 2. Start Arduino IDE og åpne eksemplene fra `Fil → Eksempler → <Biblioteksnavn>`.
 3. Kompiler og last opp til et kompatibelt kort (Arduino Uno, Nano o.l.).
 
 Alle bibliotekene kan kombineres gjennom `BaseSensor`-grensesnittet for å demonstrere objektorientert design og polymorfisme.
 
-## 👩‍🏫 For undervisning
+## For undervisning
 Strukturen gjør det enkelt å diskutere:
 - Hvordan arv og virtuelle metoder brukes for å gi felles API til ulike sensorer.
 - Forskjeller mellom analoge, digitale, I²C- og SPI-baserte sensorer.

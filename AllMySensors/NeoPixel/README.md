@@ -1,63 +1,71 @@
 # NeoPixel
 
-## 📘 Beskrivelse
-`LDRSensor` leser lysstyrke med en lysavhengig motstand (LDR). Biblioteket arver fra `BaseSensor`, slik at metoder som `begin()`, `read()` og `printDebug()` kan brukes på samme måte som for andre sensorer.
+## Beskrivelse
+
+`NeoPixel` er Adafruits serie av adresserbare RGB/RGBW LED-er basert på WS2812/WS2812B/SK6812. Hver LED kan styres individuelt via én datalinje. Dette biblioteket (eller kodeeksempelet) demonstrerer hvordan man initialiserer, setter farger og kjører animasjoner på NeoPixel-striper eller -ringer.
 
 ## Struktur
+
 ```
 .
 ├── README.md
 ├── examples
-│   └── LDRSensor_Example
-│       └── LDRSensor_Example.ino
+│   └── NeoPixel_4colors
+│       └── NeoPixel_4colors.ino
 └── src
-    ├── LDRSensor.cpp
-    └── LDRSensor.h
+    ├── Adafruit_NeoPixel.cpp
+    └── Adafruit_NeoPixel.h
 ```
-
-### Filoversikt
-| Fil | Type | Beskrivelse |
-| --- | --- | --- |
-| `src/LDRSensor.h` | Header | Deklarerer LDR-klassen med pinnekonfigurasjon og metode for å hente siste verdi. |
-| `src/LDRSensor.cpp` | Implementasjon | Initialiserer analogt inngangspin og skriver målinger til seriellmonitor. |
-| `examples/LDRSensor_Example/LDRSensor_Example.ino` | Eksempel | Viser grunnleggende bruk av biblioteket for å lese lysnivå hvert sekund. |
-
+                                    
 ## Bruk
+
 ```cpp
 #include <Arduino.h>
-#include <LDRSensor.h>
+#include <Adafruit_NeoPixel.h>
+#include <NeoPixelWrapper.h>
 
-// LDR koblet til analog inngang A0 (standard for lyssensor i labben)
-constexpr uint8_t LDR_PIN = A0;
+constexpr uint8_t LED_PIN = 6;     // datapin
+constexpr uint16_t NUM_LEDS = 30;  // antall LEDs på stripen
 
-LDRSensor ldr(LDR_PIN);
+NeoPixelWrapper pixels(NUM_LEDS, LED_PIN);
 
 void setup() {
   Serial.begin(9600);
-  while (!Serial) {
-    ; // vent på seriell tilkobling når man bruker USB-baserte kort
-  }
-  ldr.begin();
+  pixels.begin();       // initialiser stripen
+  pixels.setBrightness(50); // valgfritt: demp lysstyrke
 }
 
 void loop() {
-  ldr.read();
-  delay(1000); // les hvert sekund for å se endringer i lysnivå
+  pixels.setColorAll(255, 0, 0);  // sett all LED til rød
+  delay(500);
+
+  pixels.rainbow();               // kjør en enkel regnbueeffekt
+  delay(1000);
 }
 ```
-Seriellmonitoren skriver verdier mellom 0 og 1023, der høye tall betyr mye lys. Beveg hånden over LDR-en eller bruk en lommelykt for å se tydelige endringer.
+
+Verdiene sendes internt som RGB eller RGBW, avhengig av stripens type. Justering av lysstyrke er nyttig for å unngå høyt strømforbruk.
 
 ## Tilkobling
-- LDR og 10 kΩ motstand kobles som spenningsdeler mellom 5 V og GND.
-- Midtpunktet mellom LDR og motstand kobles til analog inngang A0.
-- Sørg for stabile tilkoblinger for å unngå støy i målingene.
+
+* **5V** → til NeoPixel-stripens 5V-inngang (bruk egen strømforsyning ved mange LED).
+* **GND** → felles jord mellom Arduino og LED-stripen.
+* **DATA IN** → Arduino digital pin (for eksempel D6).
+* **300–500 Ω seriemotstand** anbefales på datalinjen.
+* **1000 µF kondensator** mellom 5V og GND for å stabilisere spenningen.
+
+**Retning er viktig:** LED-striper har `DIN` (data inn) og `DOUT` (data ut). Sørg for å koble inn på riktig side.
 
 ## Avhengigheter
-- Arduino core (`Arduino.h`)
-- `BaseSensor`-biblioteket
+
+* `Adafruit_NeoPixel`-biblioteket
+* Arduino core (`Arduino.h`)
 
 ## For undervisning
+
 Temaer som kan dekkes:
-- Analog måling med `analogRead()` og spenningsdelere.
-- Hvordan sensorverdier kan tolkes og visualiseres i sanntid.
-- Objektorientert struktur som muliggjør felles bruk av `BaseSensor`-metodene.
+
+* PWM-basert fargestyring og additive fargemodeller (RGB).
+* Strømforbruk og effektberegning for LED-striper.
+* Timingkritiske protokoller (800 kHz NeoPixel-protokoll).
+* Objektorientert design for å kapsle LED-håndtering i egne klasser.
