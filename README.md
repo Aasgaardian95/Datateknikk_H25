@@ -71,6 +71,10 @@ Når én sensor fungerer, kan du utvide til flere:
 - Databladet til sensoren din – Inneholder nødvendige timing-, spennings- og kommunikasjonsdetaljer.
 - Forum og open source-prosjekter for den aktuelle sensoren – Gode kilder for eksempelimplementasjoner.
 
+## Arduino bibel
+
+- https://docs.arduino.cc/language-reference
+
 ## 8. Forslag til videre dokumentasjon
 
 - Lag en egen seksjon i README for hver sensor du støtter, med koblingsskjema og konfigurering.
