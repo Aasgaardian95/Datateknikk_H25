@@ -1,6 +1,6 @@
 ## Anbefalt stegvis prosess for gjennomføring av Arduinoprosjekt
 
-## 🎯 Overordnet Strategi
+## Overordnet Strategi
 
 Målet er å levere en **fungerende, godt strukturert og forståelig kode**. Prosessen skal vise **forståelse og selvstendig/fornuftig gjennomføring** av oppgaven.
 
@@ -10,7 +10,7 @@ Målet er å levere en **fungerende, godt strukturert og forståelig kode**. Pro
 2.  **Lag først en enkel løsning som fungerer**, og bygg deretter ut den avanserte varianten.
 3.  Få **én ting til å virke før du bygger videre**.
 
-## ⚙️ Eksamen i 6 Trinn: Stegvis Gjennomføring
+## Eksamen i 6 Trinn: Stegvis Gjennomføring
 
 ### Trinn 1: Forstå Oppgaven
 
