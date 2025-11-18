@@ -1,5 +1,6 @@
 # ScioSense ENS160
-Arduino library for the ENS160 digital four channel MOX gas sensor with I2C interface from ScioSense
+- Arduino library for the ENS160 digital four channel MOX gas sensor with I2C interface from ScioSense
+- Link to GitHub library: https://github.com/adafruit/ENS160_driver
 
 ## Introduction
 This project is an Arduino *library*. It implements a driver with examples for the ENS160.
