@@ -1,4 +1,4 @@
-## Anbefalt stegvis prosess for gjennomføring av Arduinoprosjekt
+## Anbefalt stegvis prosess for gjennomføring av Arduinoprosjekter basert på caseoppgave
 
 ## Overordnet Strategi
 
