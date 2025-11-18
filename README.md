@@ -7,18 +7,18 @@ Målet er å levere en **fungerende, godt strukturert og forståelig kode**. Pro
 **Husk:** Prioriter alltid **kravspesifikasjonen**. Du får **kun poeng for kravene**; alt annet er bonus.
 
 1.  Start enkelt.
-2.  **Lag først en enkel løsning som fungerer**, og bygg deretter ut den avanserte varianten.
-3.  Få **én ting til å virke før du bygger videre**.
+2.  Lag først en enkel løsning som fungerer, og bygg deretter ut den avanserte varianten.
+3.  Få én ting til å virke før du bygger videre.
 
-## Eksamen i 6 Trinn: Stegvis Gjennomføring
+## Stegvis gjennomføring via 6 trinn
 
 ### Trinn 1: Forstå Oppgaven
 
 Dette trinnet handler om grundig analyse.
 
-*   **Les oppgaven ekstremt nøye** før du gjør noe som helst.
+*   Les oppgaven ekstremt nøye før du gjør noe som helst.
 *   Les mål og krav svært nøye.
-*   **Marker uklarheter umiddelbart**.
+*   Marker uklarheter umiddelbart.
 *   Identifiser hvilke sensorer som faktisk er **relevante** for oppgaven.
 *   Tenk gjennom hvordan systemet skal testes.
 
@@ -60,14 +60,14 @@ Sikre at systemet er robust og takler grensetilfeller.
 *   Håndter **debounce**, feiltilfeller, grenser og nullverdier.
 *   Håndter frakoblede sensorer eller svake signaler.
 *   Rydd opp i globale variabler, timing og funksjoner.
-*   **Sjekk at logikken oppfyller alle kravene**.
+*   Sjekk at logikken oppfyller alle kravene.
 *   Test **hele systemet minst én gang sammenhengende**.
 
 ### Trinn 6: Dokumentasjon og Rydding
 
 Dette er avgjørende for å demonstrere forståelse og oppnå høyere karakterer.
 
-*   **Kommenter koden tydelig** – kommentarer hjelper deg selv.
+*   Kommenter koden tydelig – kommentarer hjelper deg selv.
 *   Forklar hva du **antar** og hva du **sjekker** underveis.
 *   Sikre at oppsettet (koblingen) er **ryddig og lett å følge**.
 *   Skriv kort om:
