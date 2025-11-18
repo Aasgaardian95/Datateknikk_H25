@@ -1,5 +1,22 @@
 #include <Arduino.h>
 
+/*  
+---Caseoppgaven i sin helhet---
+Smart ventilasjonssystem for arbeidsrom.
+
+I et arbeidsrom med mange elektroniske komponenter og mennesker kan temperaturen og luftfuktigheten bli høy. Dette kan påvirke både komfort og utstyr. Systemet skal overvåke forholdene og aktivere en vifte ved behov.
+
+Mål: Utvikle et system som overvåker temperatur og fuktighet og styrer en vifte automatisk.
+
+Kravspesifikasjon:
+
+- Måle temperatur og fuktighet.
+
+- Aktivere vifte når verdiene overstiger en grense.
+
+- Gi visuell tilbakemelding om status. 
+*/
+
 // put function declarations here:
 int myFunction(int, int);
 

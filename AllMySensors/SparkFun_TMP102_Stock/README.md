@@ -1,5 +1,5 @@
 SparkFun TMP102 Arduino Library
-======================
+=====================
 
 <table class="table table-hover table-striped table-bordered">
     <tr align="center">
@@ -11,6 +11,9 @@ SparkFun TMP102 Arduino Library
         <td>Digital Temperature Sensor - TMP102 (Qwiic) [ <a href="https://www.sparkfun.com/products/16304">SEN-16304</a> ]</td>
     </tr>
 </table>
+
+## GitHub library
+- Link to GitHub library: https://github.com/sparkfun/SparkFun_TMP102_Arduino_Library
 
 These are breakout boards for Texas Instruments's TMP102 -- temperature sensor.
 

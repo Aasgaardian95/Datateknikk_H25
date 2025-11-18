@@ -1,9 +1,10 @@
-SparkFun BME280 Arduino Library
-========================================
+## SparkFun BME280 Arduino Library
 
 ![SparkFun BME280 Breakout](https://cdn.sparkfun.com//assets/parts/1/2/3/2/9/14348-01.jpg)
 
 [*SparkFun CCS811/BME280 Combo (SEN-14348)*](https://www.sparkfun.com/products/14348)
+
+- Link to GitHub library: https://github.com/sparkfun/SparkFun_BME280_Arduino_Library
 
 This library allows the user to:
 
