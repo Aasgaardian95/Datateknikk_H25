@@ -12,6 +12,21 @@ image:https://github.com/{repository-owner}/{repository-name}/actions/workflows/
 
 - Link to GitHub library: https://github.com/arduino-libraries/LiquidCrystal
 
+## Oppkobling
+
+- LCD RS pin to digital pin 12
+- LCD Enable pin to digital pin 11
+- LCD D4 pin to digital pin 5
+- LCD D5 pin to digital pin 4
+- LCD D6 pin to digital pin 3
+- LCD D7 pin to digital pin 2
+- LCD R/W pin to GND
+- LCD VSS pin to GND
+- LCD VCC pin to 5V
+- LCD LED+ to 5V through a 220 ohm resistor
+- LCD LED- to GND
+- Additionally, wire a 10k potentiometer to +5V and GND, with it's wiper (output) to LCD screens VO pin (pin3).
+
 This library allows an Arduino board to control liquid crystal displays (LCDs) based on the Hitachi HD44780 (or a compatible) chipset, which is found on most text-based LCDs.
 
 For more information about this library please visit us at
