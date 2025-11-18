@@ -1,7 +1,11 @@
 #include <Arduino.h>
-#include "keypad.h"
+#include "Keypad.h"
+#include <Wire.h>
 
 // Kommer fungerende keypad kode her senere
+const byte ROWS = 4; //four rows
+const byte COLS = 3; //three columns
+Keypad customKeypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 void setup() {
  
