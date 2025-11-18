@@ -1,6 +1,6 @@
 ## Anbefalt stegvis prosess for gjennomføring av Arduinoprosjekter basert på caseoppgave
 
-## Overordnet Strategi
+## Overordnet strategi
 
 Målet er å levere en **fungerende, godt strukturert og forståelig kode**. Prosessen skal vise **forståelse og selvstendig/fornuftig gjennomføring** av oppgaven.
 
