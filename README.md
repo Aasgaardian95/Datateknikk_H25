@@ -29,7 +29,7 @@ Definer veien til målet.
 *   Bryt ned problemet i **delmål**.
 *   Lag en **punktvis løsningsplan** (inkluderer sensorkobling, logikk og datastrøm).
 *   Tegn en **koblingsskisse** (enkelt håndtegnet).
-*   Definer **minimumsfunksjon (MVP)** og eventuelle «kan-legg-til»-funksjoner.
+*   Definer **minimumsfunksjon (MVP)** og eventuelle «kan-legge-til»-funksjoner.
 *   Sjekk strømkrav og komponentvalg.
 
 ### Trinn 3: Grunnimplementasjon
@@ -44,7 +44,7 @@ Få basislogikken og komponentene på plass og verifisert.
 *   Test **løpende** (ikke vent til slutten).
 *   *Står du fast?* Mål fysisk. Kabler, pins og feil koblinger er vanligere enn kodefeil.
 
-### Trinn 4: Utvide Funksjonalitet
+### Trinn 4: Utvide funksjonalitet
 
 Bygg systemet lagvis.
 
@@ -53,7 +53,7 @@ Bygg systemet lagvis.
 *   Legg på brukerinput (**Keypad/knapper**) til slutt.
 *   Test hvert steg i praksis.
 
-### Trinn 5: Stabilisering og Feilhåndtering
+### Trinn 5: Stabilisering og feilhåndtering
 
 Sikre at systemet er robust og takler grensetilfeller.
 
@@ -63,7 +63,7 @@ Sikre at systemet er robust og takler grensetilfeller.
 *   Sjekk at logikken oppfyller alle kravene.
 *   Test **hele systemet minst én gang sammenhengende**.
 
-### Trinn 6: Dokumentasjon og Rydding
+### Trinn 6: Dokumentasjon og rydding
 
 Dette er avgjørende for å demonstrere forståelse og oppnå høyere karakterer.
 
