@@ -1,18 +1,31 @@
 #include <Arduino.h>
+#include "keypad.h"
 
-// put function declarations here:
-int myFunction(int, int);
+// Kommer fungerende keypad kode her senere
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+ 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  
+  char mapKey(int a, int b) {
+  int minP = min(a, b);
+  int maxP = max(a, b);
+  if (minP == 6 && maxP == 7) return '1';
+  if (minP == 7 && maxP == 8) return '2';
+  if (minP == 4 && maxP == 7) return '3';
+  if (minP == 2 && maxP == 6) return '4';
+  if (minP == 2 && maxP == 8) return '5';
+  if (minP == 2 && maxP == 4) return '6';
+  if (minP == 3 && maxP == 6) return '7';
+  if (minP == 3 && maxP == 8) return '8';
+  if (minP == 3 && maxP == 4) return '9';
+  if (minP == 5 && maxP == 8) return '0';
+  if (minP == 5 && maxP == 6) return '*';
+  if (minP == 4 && maxP == 5) return '#';
+  return '?';
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
 }
+
