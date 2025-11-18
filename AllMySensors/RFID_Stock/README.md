@@ -14,6 +14,10 @@ MFRC522
 .. image:: https://img.shields.io/badge/ArduinoIDE-%3E%3D1.6.10-lightgrey.svg
     :target: `compatible ide`_
 
+## GitHub
+
+- Link to GitHub library: https://github.com/miguelbalboa/rfid
+
 Arduino library for MFRC522 and other RFID RC522 based modules.
 
 Read and write different types of Radio-Frequency IDentification (RFID) cards

@@ -4,6 +4,8 @@
 
 [*SparkFun CCS811/BME280 Combo (SEN-14348)*](https://www.sparkfun.com/products/14348)
 
+## GitHub
+
 - Link to GitHub library: https://github.com/sparkfun/SparkFun_BME280_Arduino_Library
 
 This library allows the user to:

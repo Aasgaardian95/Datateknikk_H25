@@ -1,5 +1,9 @@
 # NeoPixel
 
+## GitHub
+
+- Link to GitHub library: https://github.com/adafruit/Adafruit_NeoPixel
+
 ## Beskrivelse
 
 `NeoPixel` er Adafruits serie av adresserbare RGB/RGBW LED-er basert på WS2812/WS2812B/SK6812. Hver LED kan styres individuelt via én datalinje. Dette biblioteket (eller kodeeksempelet) demonstrerer hvordan man initialiserer, setter farger og kjører animasjoner på NeoPixel-striper eller -ringer.
