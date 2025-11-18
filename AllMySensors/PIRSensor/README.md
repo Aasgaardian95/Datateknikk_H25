@@ -25,26 +25,39 @@
 ## Bruk
 ```cpp
 #include <Arduino.h>
-#include <PIRSensor.h>
+const int led = 9; // Led positive terminal to the digital pin 9.              
+const  int sensor = 5; // signal pin of sensor to digital pin 5.               
+const  int state = LOW;            
+const int val = 0;                 
 
-// PIR-sensor koblet til digital pinne 7 og LED til innebygd indikator
-constexpr uint8_t PIR_PIN = 7;
-constexpr uint8_t LED_PIN = LED_BUILTIN;
+void  setup() { // Void setup is ran only once after each powerup or reset of the Arduino  board.
+  pinMode(led, OUTPUT); // Led is determined as an output here.    
+  pinMode(sensor, INPUT); // PIR motion sensor is determined is an input here.  
+  Serial.begin(9600);      
+}
 
-PIRSensor pir(PIR_PIN, LED_PIN);
-
-void setup() {
-  Serial.begin(9600);
-  while (!Serial) {
-    ;
+void loop(){ // Void loop is ran over and  over and consists of the main program.
+  val = digitalRead(sensor);   
+  if  (val == HIGH) {           
+    digitalWrite(led, HIGH);   
+    delay(500);  // Delay of led is 500             
+    
+    if (state == LOW) {
+      Serial.println("  Motion detected "); 
+      state = HIGH;       
+    }
+  } 
+  else {
+      digitalWrite(led, LOW);
+      delay(500);             
+      
+      if  (state == HIGH){
+        Serial.println("The action/ motion has stopped");
+        state = LOW;       
+    }
   }
-  pir.begin();
 }
 
-void loop() {
-  pir.read();
-  delay(500); // les to ganger i sekundet for rask respons
-}
 ```
 Når bevegelse registreres, skriver programmet «[PIR] Bevegelse oppdaget!» og tenner LED-en. Ved ro slukkes LED-en, og meldingen «[PIR] Ingen bevegelse registrert.» vises.
 
