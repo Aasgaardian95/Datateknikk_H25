@@ -14,3 +14,7 @@
 
 ## Datablad
 - Link: https://cdn.sparkfun.com/assets/f/f/a/5/0/DS-16038.pdf
+
+## Demonstrasjonsvideo
+
+[![Demo Video](https://img.youtube.com/vi/tiGw9PQbvrg/0.jpg)](https://www.youtube.com/watch?v=tiGw9PQbvrg)
