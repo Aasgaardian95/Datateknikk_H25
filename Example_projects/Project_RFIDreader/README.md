@@ -9,10 +9,10 @@
     - Strømforsyning: 3.3 V og GND.
     - Husk å holde kortet i ro noen sekunder for stabil lesing.
 - LED (rød):
-    - Katode -> 1k ohm -> GND
+    - Katode -> 220/1k ohm -> GND
     - Anode -> digital pinne 5
 - LED (grønn):
-    - Katode -> 1k ohm -> GND
+    - Katode -> 220/1k ohm -> GND
     - Anode -> digital pinne 6
 
 ## Demonstrasjonsvideo

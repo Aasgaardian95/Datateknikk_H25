@@ -11,6 +11,12 @@
     - Kolonne 2 -> digital pinne 4
     - Kolonne 3 -> digital pinne 3
     - Kolonne 4 -> digital pinne 2
+- LED (rød):
+    - Katode -> 220/1k ohm -> GND
+    - Anode -> digital pinne 10
+- LED (grønn):
+    - Katode -> 220/1k ohm -> GND
+    - Anode -> digital pinne 11
 
 ## Datablad
 - Link: https://cdn.sparkfun.com/assets/f/f/a/5/0/DS-16038.pdf
