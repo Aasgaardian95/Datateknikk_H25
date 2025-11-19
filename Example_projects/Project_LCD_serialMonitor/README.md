@@ -1,3 +1,5 @@
+## LCD med visning fra inntasting i serial monitor
+
 ## Oppkobling
 
 - Arduino Uno → LCD (16x2, 4‑bit modus):

@@ -1,3 +1,5 @@
+## LCD med visning fra analog read (LDR)
+
 ## Oppkobling
 
 - Arduino Uno → LCD (16x2, 4‑bit modus):
