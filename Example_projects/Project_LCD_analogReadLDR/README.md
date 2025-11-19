@@ -21,3 +21,7 @@
     - Én ende av LDR → +5 V
     - Andre ende av LDR → A0 og til motstanden
     - Motstanden → GND
+
+## Demonstrasjonsvideo
+
+[![Demo Video](https://img.youtube.com/vi/80Tmg1G_Ykg/0.jpg)](https://www.youtube.com/shorts/80Tmg1G_Ykg)

@@ -17,4 +17,4 @@
 
 ## Demonstrasjonsvideo
 
-[![Demo Video](https://img.youtube.com/vi/180Tmg1G_Ykg/0.jpg)](https://www.youtube.com/shorts/80Tmg1G_Ykg)
+[![Demo Video](https://img.youtube.com/vi/KL8Wdw21BKg/0.jpg)](https://www.youtube.com/shorts/KL8Wdw21BKg)
