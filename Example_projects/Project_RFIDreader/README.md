@@ -14,3 +14,7 @@
 - LED (grønn):
     - Katode -> 1k ohm -> GND
     - Anode -> digital pinne 6
+
+## Demonstrasjonsvideo
+
+[![Demo Video](https://img.youtube.com/vi/180Tmg1G_Ykg/0.jpg)](https://www.youtube.com/shorts/80Tmg1G_Ykg)
