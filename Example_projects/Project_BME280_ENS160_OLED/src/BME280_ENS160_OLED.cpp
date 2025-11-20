@@ -4,6 +4,8 @@
 #include <Adafruit_GFX.h>          // Grafikkbibliotek for skjerm 
 #include <Adafruit_SSD1306.h>      // OLED-skjermdriver (SSD1306)
 
+// UFERDIG DELPROSJEKT!!!!!!!!!!!!!!
+
 #define SCREEN_WIDTH 128           // OLED bredde i piksler 
 #define SCREEN_HEIGHT 64           // OLED høyde i piksler 
 #define OLED_RESET -1              // Ingen reset-pin (brukes ikke) 
