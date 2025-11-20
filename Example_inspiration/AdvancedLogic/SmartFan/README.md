@@ -32,24 +32,30 @@ Dette prosjektet viser en **smart ventilasjon / vifte** som bruker:
 
 ## Oppkobling
 
-1. **I2C-sensorer og OLED kan dele samme SDA/SCL bus**
-   - Koble BME280, ENS160 og OLED til A4/A5 eller direkte til SDA/SCL
-2. **PWM-motor med retning**
-   - PWM pin 9 → motor hastighet  
-   - DIR pin 8 → motor retning (HIGH/LOW)
-   - Bruk H-bro / L298N for ekstern strømstyring
-3. **Toggle-knapp**
-   - Koble til pin 7 og GND
-   - `INPUT_PULLUP` gjør at LOW = trykket
-4. **Strøm**
-   - BME280 / ENS160 / OLED → Arduino 3.3V
-   - Motor → ekstern strøm via H-bro
-5. **Ryddig oppsett**
-   - Sensorer samlet på én side, motor / H-bro på annen side
-   - Kortest mulig kabler, fargekodede ledninger:
-     - Rød = 5V
-     - Svart = GND
-     - Gul / Blå = signal
+### **OLED 128x64**
+- VCC → 3.3V / 5V  
+- GND → GND  
+- SDA → A4  
+- SCL → A5  
+
+### **PWM-Motor / Retning**
+- PWM pin → 9 (`MOTOR_PWM`)  
+- DIR pin → 8 (`MOTOR_DIR`)  
+- GND → GND  
+- Strøm → ekstern kilde / H-bro om nødvendig  
+
+### **Toggle-knapp (sommer/vinter)**
+- Knapp → 7 (`TOGGLE_BUTTON`)  
+- GND → GND  
+- Bruk `INPUT_PULLUP` i koden  
+
+### **Generelt**
+- I2C-bus deles av OLED og andre I2C-sensorer (her kun BME280 og ENS160 hvis koblet)  
+- Kortest mulig kabler, fargekodede signaler:  
+  - Rød = 5V  
+  - Svart = GND  
+  - Andre farger = signal  
+- Hold sensorer på én side, motor og ekstern strøm på annen side for ryddig layout  
 
 ---
 
