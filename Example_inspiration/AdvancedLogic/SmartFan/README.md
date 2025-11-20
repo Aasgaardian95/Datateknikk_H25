@@ -32,7 +32,7 @@ Dette prosjektet viser en **smart ventilasjon / vifte** som bruker:
 
 ## Oppkobling
 
-### **OLED 128x64**
+### **OLED**
 - VCC → 3.3V / 5V  
 - GND → GND  
 - SDA → A4  
