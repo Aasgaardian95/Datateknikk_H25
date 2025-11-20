@@ -30,22 +30,48 @@ Dette prosjektet viser et **smart alarmsystem** som bruker:
 
 ## Oppkobling
 
-1. **OLED**
-   - SDA → A4, SCL → A5 eller direkte til SDA/SCL på Arduino Uno
-2. **Keypad**
-   - Rader og kolonner kobles til definert pinneoppsett
-3. **Motor / Servo**
-   - Kobles til MOTOR_LOCK pinne
-   - Sørg for ekstern strømforsyning hvis nødvendig
-4. **LED & Buzzer**
-   - Kortest mulig ledninger
-   - Rød = 5V, svart = GND
-5. **Dørbruddsensor**
-   - Koblet mellom pin og GND
-   - `INPUT_PULLUP` gjør at LOW = dør åpnet
-6. **Generelt**
-   - Hold kabler ryddige
-   - Skill strømforbrukende komponenter fra logiske signaler
+### **OLED**
+- VCC → 3.3V / 5V  
+- GND → GND  
+- SDA → A4  
+- SCL → A5  
+
+### **Keypad 4x4**
+- R1 → 9  
+- R2 → 8  
+- R3 → 7  
+- R4 → 6  
+- C1 → 5  
+- C2 → 4  
+- C3 → 3  
+- C4 → 2  
+- GND → GND  
+
+### **Motor / Servo (Lås)**
+- Signal → 6 (`MOTOR_LOCK`)  
+- GND → GND  
+- Strøm → ekstern H-bro / ekstern kilde om nødvendig  
+
+### **LED & Buzzer**
+- Grønn LED → 3  
+- Rød LED → 4  
+- Buzzer → 5  
+- Bruk motstand på LED (f.eks. 220Ω)  
+
+### **Dørbruddsensor**
+- Sensor → 10  
+- GND → GND  
+- `INPUT_PULLUP` gjør at LOW = dør åpnet  
+
+### **Generelt**
+- Hold kabler ryddige  
+- Skill sensorer fra aktuatorkretser  
+- Del I2C-bus for OLED og andre I2C-enheter  
+- Kortest mulig kabler, fargekodede signaler:  
+  - Rød = 5V  
+  - Svart = GND  
+  - Andre farger = signal
+
 
 ---
 
