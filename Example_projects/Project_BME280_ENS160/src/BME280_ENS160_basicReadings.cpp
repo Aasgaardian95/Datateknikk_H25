@@ -1,8 +1,11 @@
 #include <Wire.h>
-#include <BME280.h>
-#include <ENS160.h>
+#include <SparkFunBME280.h>
+#include <SparkFun_ENS160.h>
 
 BME280 mySensor;
+SparkFun_ENS160 myENS; 
+
+int ensStatus; 
 
 void setup()
 {
@@ -68,5 +71,25 @@ void loop()
 
   Serial.println();
 
-  delay(500);
+  if( myENS.checkDataStatus() )
+	{
+		Serial.print("Air Quality Index (1-5) : ");
+		Serial.println(myENS.getAQI());
+
+		Serial.print("Total Volatile Organic Compounds: ");
+		Serial.print(myENS.getTVOC());
+		Serial.println("ppb");
+
+		Serial.print("CO2 concentration: ");
+		Serial.print(myENS.getECO2());
+		Serial.println("ppm");
+
+	Serial.print("Gas Sensor Status Flag (0 - Standard, 1 - Warm up, 2 - Initial Start Up): ");
+    Serial.println(myENS.getFlags());
+
+		Serial.println();
+
+
+	}
+  delay(5000);
 }
