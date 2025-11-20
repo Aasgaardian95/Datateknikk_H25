@@ -12,9 +12,9 @@ char keys[ROWS][COLS] = { // Definerer hvilke tegn som ligger på hver knapp i t
   {'*', '0', '#', 'D'}
 };
 
-byte rowPins[ROWS] = {9, 8, 7, 6}; // Arduino-pinner koblet til radene på tastaturet
-
-byte colPins[COLS] = {5, 4, 3, 2}; // Arduino-pinner koblet til kolonnene på tastaturet
+// Tilordner Arduino-pinner til radene og kolonnene på keypaden
+byte rowPins[ROWS] = {11, 10, 9, 8};
+byte colPins[COLS] = {A0, A1, A2, A3};
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS); // Oppretter selve keypad-objektet med knappene og tilhørende pinner
 

@@ -1,4 +1,4 @@
-## Keypad (membrance switch module) med inntasting av kode for autentisering og visning på LCD-skjerm
+## Keypad (membrane switch module) med inntasting av kode for autentisering og visning på LCD-skjerm
 
 ## Oppkobling
 
