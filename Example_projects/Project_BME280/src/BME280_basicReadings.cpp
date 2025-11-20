@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <BME280.h>
+#include <SparkFunBME280.h>
 
 BME280 mySensor;
 
