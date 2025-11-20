@@ -1,6 +1,7 @@
 ## Anbefalt stegvis prosess for gjennomføring av Arduinoprosjekter basert på caseoppgave
 
 ## Nyttige nettsider
+- https://projecthub.arduino.cc
 - https://dronebotworkshop.com/platformio
 - https://dronebotworkshop.com/arduino-microcontroller
 
