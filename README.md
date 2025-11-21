@@ -2,6 +2,7 @@
 
 ## Nyttige nettsider
 - https://projecthub.arduino.cc
+- https://racheldebarros.com/arduino-tutorials
 - https://dronebotworkshop.com/platformio
 - https://dronebotworkshop.com/arduino-microcontroller
 
