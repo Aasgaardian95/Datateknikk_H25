@@ -4,11 +4,11 @@
 
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
-#include <avr/power.h>  // Required for 16 MHz Adafruit Trinket
+#include <avr/power.h> // Required for 16 MHz Adafruit Trinket
 #endif
 
 // Which pin on the Arduino is connected to the NeoPixels?
-#define PIN 5  // On Trinket or Gemma, suggest changing this to 1
+#define PIN 5 // On Trinket or Gemma, suggest changing this to 1
 #define trigPin 9
 #define echoPin 10
 
@@ -16,7 +16,7 @@ float duration, distance;
 int mappedDistance, mappedDistanceToColor, green, red, numPixels;
 
 // How many NeoPixels are attached to the Arduino?
-#define NUMPIXELS 30  // Popular NeoPixel ring size
+#define NUMPIXELS 30 // Popular NeoPixel ring size
 
 // When setting up the NeoPixel library, we tell it how many pixels,
 // and which pin to use to send signals. Note that for older NeoPixel
@@ -24,9 +24,10 @@ int mappedDistance, mappedDistanceToColor, green, red, numPixels;
 // strandtest example for more information on possible values.
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
-#define DELAYVAL 100  // Time (in milliseconds) to pause between pixels
+#define DELAYVAL 100 // Time (in milliseconds) to pause between pixels
 
-void setup() {
+void setup()
+{
 
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
@@ -40,10 +41,11 @@ void setup() {
 #endif
   // END of Trinket-specific code.
 
-  pixels.begin();  // INITIALIZE NeoPixel strip object (REQUIRED)
+  pixels.begin(); // INITIALIZE NeoPixel strip object (REQUIRED)
 }
 
-void loop() {
+void loop()
+{
 
   // int numMeasurements = 2;
   //
@@ -76,18 +78,24 @@ void loop() {
   fillStrip(red, green, 0, numPixels);
 }
 
-void fillStrip(uint8_t r, uint8_t g, uint8_t b, int numPixels) {
-  for (int i = 0; i < NUMPIXELS; i++) {
-    if (i < numPixels) {
-      pixels.setPixelColor(i, pixels.Color(r, g, b));  // set color for pixel i
-    } else {
+void fillStrip(uint8_t r, uint8_t g, uint8_t b, int numPixels)
+{
+  for (int i = 0; i < NUMPIXELS; i++)
+  {
+    if (i < numPixels)
+    {
+      pixels.setPixelColor(i, pixels.Color(r, g, b)); // set color for pixel i
+    }
+    else
+    {
       pixels.setPixelColor(i, pixels.Color(0, 0, 0));
     }
-    pixels.show();  // send the updated colors to the strip
+    pixels.show(); // send the updated colors to the strip
   }
 }
 
-long getDuration() {
+long getDuration()
+{
 
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);

@@ -10,18 +10,22 @@ const int fanPin = 9;
 
 bool fanOn = false;
 
-void setup() {
+void setup()
+{
   pinMode(fanPin, OUTPUT);
 }
 
-void loop() {
+void loop()
+{
   int tempRaw = analogRead(tempPin);
   float tempC = (tempRaw / 1023.0) * 50; // forenklet konvertering
 
-  if (!fanOn && tempC > 28) {
+  if (!fanOn && tempC > 28)
+  {
     fanOn = true;
   }
-  if (fanOn && tempC < 25) {
+  if (fanOn && tempC < 25)
+  {
     fanOn = false;
   }
 

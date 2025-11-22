@@ -12,19 +12,23 @@ const int ledPin = 9;
 unsigned long lastToggle = 0;
 bool ledState = false;
 
-void loop() {
+void loop()
+{
   int lightVal = analogRead(lightPin);
   bool pressed = digitalRead(btn) == LOW;
 
-  if (pressed && lightVal < 200) {
+  if (pressed && lightVal < 200)
+  {
 
-    if (millis() - lastToggle > 300) {
+    if (millis() - lastToggle > 300)
+    {
       ledState = !ledState;
       digitalWrite(ledPin, ledState);
       lastToggle = millis();
     }
-
-  } else {
+  }
+  else
+  {
     digitalWrite(ledPin, LOW);
     ledState = false;
   }

@@ -17,30 +17,36 @@ const int redLED = 11;
 
 NewPing sonar(trig, echo, 200);
 
-void setup() {
+void setup()
+{
   pinMode(motorPin, OUTPUT);
   pinMode(greenLED, OUTPUT);
   pinMode(redLED, OUTPUT);
   pinMode(emergencyBtn, INPUT_PULLUP);
 }
 
-void loop() {
+void loop()
+{
   bool emergency = digitalRead(emergencyBtn) == LOW;
   int distance = sonar.ping_cm();
   int lightVal = analogRead(lightSensor);
 
-  if (emergency) {
+  if (emergency)
+  {
     digitalWrite(motorPin, LOW);
     digitalWrite(redLED, HIGH);
     digitalWrite(greenLED, LOW);
-    return;  // prioritet
+    return; // prioritet
   }
 
-  if (distance > 0 && distance < 30 && lightVal < 300) {
+  if (distance > 0 && distance < 30 && lightVal < 300)
+  {
     digitalWrite(motorPin, HIGH);
     digitalWrite(greenLED, HIGH);
     digitalWrite(redLED, LOW);
-  } else {
+  }
+  else
+  {
     digitalWrite(motorPin, LOW);
     digitalWrite(greenLED, LOW);
     digitalWrite(redLED, HIGH);

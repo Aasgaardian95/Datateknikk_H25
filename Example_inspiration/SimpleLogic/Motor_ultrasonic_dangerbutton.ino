@@ -11,23 +11,28 @@ const int motorPin = 5;
 const int btnEmergency = 2;
 const int distSensor = A0;
 
-void setup() {
+void setup()
+{
   pinMode(motorPin, OUTPUT);
   pinMode(btnEmergency, INPUT_PULLUP);
   Serial.begin(9600);
 }
 
-void loop() {
+void loop()
+{
   int emergencyPressed = digitalRead(btnEmergency) == LOW;
   int distance = analogRead(distSensor);
 
-  if (emergencyPressed) {
-    analogWrite(motorPin, 0);          // FARE
+  if (emergencyPressed)
+  {
+    analogWrite(motorPin, 0); // FARE
   }
-  else if (distance < 150) {
-    analogWrite(motorPin, 80);         // ADVARSEL
+  else if (distance < 150)
+  {
+    analogWrite(motorPin, 80); // ADVARSEL
   }
-  else {
-    analogWrite(motorPin, 255);        // NORMAL
+  else
+  {
+    analogWrite(motorPin, 255); // NORMAL
   }
 }

@@ -10,28 +10,32 @@ Logikk:
 
 #include <NewPing.h>
 
-NewPing sonar(7, 6, 200);  // trigger, echo, max distance
+NewPing sonar(7, 6, 200); // trigger, echo, max distance
 const int lightSensor = A0;
 const int tempSensor = A1;
 const int ledPin = 9;
 
-void setup() {
+void setup()
+{
   pinMode(ledPin, OUTPUT);
   Serial.begin(9600);
 }
 
-void loop() {
+void loop()
+{
   int distance = sonar.ping_cm();
   int lightVal = analogRead(lightSensor);
   int tempVal = analogRead(tempSensor);
 
   float tempC = (tempVal / 1023.0) * 100; // forenklet temperaturkonvertering
 
-  if (distance > 0 && distance < 20 && lightVal < 300 && tempC >= 15 && tempC <= 30) {
+  if (distance > 0 && distance < 20 && lightVal < 300 && tempC >= 15 && tempC <= 30)
+  {
 
     digitalWrite(ledPin, HIGH);
-
-  } else {
+  }
+  else
+  {
     digitalWrite(ledPin, LOW);
   }
 }

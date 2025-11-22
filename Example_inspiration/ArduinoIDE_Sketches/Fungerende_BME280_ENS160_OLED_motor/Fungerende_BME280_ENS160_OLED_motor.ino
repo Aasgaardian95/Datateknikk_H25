@@ -26,7 +26,8 @@ int motorRPM = 0;
 float rh;
 float tempC;
 
-void setup() {
+void setup()
+{
   Wire.begin();
 
   Serial.begin(115200);
@@ -35,24 +36,26 @@ void setup() {
   pinMode(H_input2, OUTPUT);
   pinMode(H_enablePin, OUTPUT);
 
-  if (!myENS.begin()) {
+  if (!myENS.begin())
+  {
     Serial.println("Air Quality Sensor did not begin.");
     while (1)
       ;
   }
 
-  if (myBME280.beginI2C() == false)  //Begin communication over I2C
+  if (myBME280.beginI2C() == false) // Begin communication over I2C
   {
     Serial.println("The Environmental did not respond. Please check wiring or I2C Address.");
     while (1)
-      ;  //Freeze
+      ; // Freeze
   }
 
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
-  if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
+  if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS))
+  {
     Serial.println(F("SSD1306 allocation failed"));
     for (;;)
-      ;  // Don't proceed, loop forever
+      ; // Don't proceed, loop forever
   }
 
   display.display();
@@ -97,7 +100,8 @@ void setup() {
   Serial.println(ensStatus);
 }
 
-void loop() {
+void loop()
+{
 
   analogWrite(H_enablePin, 255);
   digitalWrite(H_input1, HIGH);
@@ -114,11 +118,11 @@ void loop() {
   digitalWrite(H_input2, LOW);
   delay(2500);
 
+  if (myENS.checkDataStatus())
+  {
 
-
-  if (myENS.checkDataStatus()) {
-
-    if (printedCompensation == false) {
+    if (printedCompensation == false)
+    {
       Serial.println("---------------------------");
       Serial.print("Compensation Relative Humidity (%): ");
       Serial.println(myENS.getRH());

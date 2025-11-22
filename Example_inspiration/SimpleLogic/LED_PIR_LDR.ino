@@ -13,28 +13,33 @@ const int greenLED = 9;
 const int redLED = 10;
 const int blueLED = 11;
 
-void setup() {
+void setup()
+{
   pinMode(pir, INPUT);
   pinMode(greenLED, OUTPUT);
   pinMode(redLED, OUTPUT);
   pinMode(blueLED, OUTPUT);
 }
 
-void loop() {
+void loop()
+{
   int lightVal = analogRead(lightSensor);
   bool motion = digitalRead(pir);
 
-  if (lightVal < 200 && motion) {
+  if (lightVal < 200 && motion)
+  {
     digitalWrite(greenLED, HIGH);
     digitalWrite(redLED, LOW);
     digitalWrite(blueLED, LOW);
   }
-  else if (lightVal < 200 && !motion) {
+  else if (lightVal < 200 && !motion)
+  {
     digitalWrite(greenLED, LOW);
     digitalWrite(redLED, HIGH);
     digitalWrite(blueLED, LOW);
   }
-  else {
+  else
+  {
     digitalWrite(greenLED, LOW);
     digitalWrite(redLED, LOW);
     digitalWrite(blueLED, HIGH);

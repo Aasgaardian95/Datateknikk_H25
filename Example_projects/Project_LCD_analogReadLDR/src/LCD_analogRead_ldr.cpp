@@ -10,7 +10,8 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 // LDR koblet til analog pin A0 (via spenningsdeler med motstand)
 const int ldrPin = A0;
 
-void setup() {
+void setup()
+{
   // Setter opp LCD med 16 kolonner og 2 rader
   lcd.begin(16, 2);
 
@@ -21,7 +22,8 @@ void setup() {
   lcd.print("LDR test klar!");
 }
 
-void loop() {
+void loop()
+{
   // Leser verdien fra LDR (0–1023)
   int ldrValue = analogRead(ldrPin);
 
@@ -36,10 +38,10 @@ void loop() {
   Serial.println("%");
 
   // Oppdaterer LCD
-  lcd.clear();             // Tøm skjermen
-  lcd.setCursor(0, 0);     // Første linje
+  lcd.clear();         // Tøm skjermen
+  lcd.setCursor(0, 0); // Første linje
   lcd.print("Lysstyrke:");
-  lcd.setCursor(0, 1);     // Andre linje
+  lcd.setCursor(0, 1); // Andre linje
   lcd.print(ldrPercent);
   lcd.print("%");
 
