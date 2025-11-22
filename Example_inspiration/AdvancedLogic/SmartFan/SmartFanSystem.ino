@@ -74,7 +74,8 @@ void loop() {
   bool buttonState = digitalRead(TOGGLE_BUTTON);          // Les knappestatus
   if (lastButtonState == HIGH && buttonState == LOW) {    // Registrer trykk (HIGH→LOW)
     summerMode = !summerMode;                             // Bytt modus
-    Serial.print("Modus byttet: "); Serial.println(summerMode ? "Sommer" : "Vinter");
+    Serial.print("Modus byttet: "); 
+    Serial.println(summerMode ? "Sommer" : "Vinter");
     delay(200);                                           // Enkel debounce
   }
 
@@ -101,16 +102,26 @@ void loop() {
   else if (temp < 25 && tvoc < 300) motorSpeed = 120;   
   else motorSpeed = 255;                                
 
-  analogWrite(MOTOR_PWM, motorSpeed);                   // Sett PWM til motor
+  analogWrite(MOTOR_PWM, motorSpeed);       // Sett PWM til motor
 
   // --- Oppdater OLED ---
   display.clearDisplay();                        
   display.setCursor(0,0);                        
-  display.print("Temp: "); display.print(temp); display.println(" C");
-  display.print("Hum: "); display.print(hum); display.println(" %");
-  display.print("TVOC: "); display.print(tvoc); display.println(" ppb");
-  display.print("eCO2: "); display.print(eco2); display.println(" ppm");
-  display.print("Motor: "); display.print(motorSpeed); display.print("/255");
+  display.print("Temp: ");
+  display.print(temp); 
+  display.println(" C");
+  display.print("Hum: "); 
+  display.print(hum); 
+  display.println(" %");
+  display.print("TVOC: "); 
+  display.print(tvoc); 
+  display.println(" ppb");
+  display.print("eCO2: "); 
+  display.print(eco2); 
+  display.println(" ppm");
+  display.print("Motor: "); 
+  display.print(motorSpeed); 
+  display.print("/255");
   display.println(summerMode ? " Sommer" : " Vinter");
   display.display();                                
 

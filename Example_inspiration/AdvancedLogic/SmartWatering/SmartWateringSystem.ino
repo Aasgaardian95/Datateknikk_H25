@@ -93,19 +93,37 @@ void loop() {
   // --- Oppdater OLED ---
   display.clearDisplay();                        // Tøm skjerm
   display.setCursor(0,0);
-  display.print("Temp: "); display.print(temp); display.println(" C");
-  display.print("Hum: "); display.print(hum); display.println(" %");
-  display.print("TVOC: "); display.print(tvoc); display.println(" ppb");
-  display.print("eCO2: "); display.print(eco2); display.println(" ppm");
-  display.print("Pumpe: "); display.println(pumpSpeed == 0 ? "AV" : "PÅ");
+  display.print("Temp: "); 
+  display.print(temp); 
+  display.println(" C");
+  display.print("Hum: "); 
+  display.print(hum); 
+  display.println(" %");
+  display.print("TVOC: "); 
+  display.print(tvoc); 
+  display.println(" ppb");
+  display.print("eCO2: "); 
+  display.print(eco2); 
+  display.println(" ppm");
+  display.print("Pumpe: "); 
+  display.println(pumpSpeed == 0 ? "AV" : "PÅ");
   display.display();                             // Vis innhold
   
   // --- Serial Monitor for debugging ---
-  Serial.print("Temp: "); Serial.print(temp); Serial.print(" C, ");
-  Serial.print("Hum: "); Serial.print(hum); Serial.print(" %, ");
-  Serial.print("TVOC: "); Serial.print(tvoc); Serial.print(" ppb, ");
-  Serial.print("eCO2: "); Serial.print(eco2); Serial.print(" ppm, ");
-  Serial.print("Pumpe: "); Serial.println(pumpSpeed == 0 ? "AV" : "PÅ");
+  Serial.print("Temp: "); 
+  Serial.print(temp); 
+  Serial.print(" C, ");
+  Serial.print("Hum: "); 
+  Serial.print(hum); 
+  Serial.print(" %, ");
+  Serial.print("TVOC: "); 
+  Serial.print(tvoc); 
+  Serial.print(" ppb, ");
+  Serial.print("eCO2: "); 
+  Serial.print(eco2); 
+  Serial.print(" ppm, ");
+  Serial.print("Pumpe: "); 
+  Serial.println(pumpSpeed == 0 ? "AV" : "PÅ");
   
   delay(500);                                   // Oppdater hvert 0,5 sekund
 }

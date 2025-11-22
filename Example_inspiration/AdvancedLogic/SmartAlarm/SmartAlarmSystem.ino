@@ -78,10 +78,14 @@ void loop() {
   if(key) {                           // Hvis knapp trykket
     Serial.print("Tast: "); Serial.println(key); // Print til Serial
     if(inputCode.length() == 0) codeEntryStart = millis(); // Start tidsvindu
-    if(key >= '0' && key <= '9') inputCode += key; // Legg til siffer i input
-    else if(key=='*') { inputCode = ""; Serial.println("Input slettet"); } // Slett
+    if(key >= '0' && key <= '9') 
+    inputCode += key; // Legg til siffer i input
+    else if (key=='*') {
+       inputCode = ""; 
+       Serial.println("Input slettet"); } // Slett
     else if(key=='#') {               // Send kode for validering
-      Serial.print("Kode sendt: "); Serial.println(inputCode);
+      Serial.print("Kode sendt: "); 
+      Serial.println(inputCode);
       if(inputCode == correctCode) { // Korrekt kode
         alarmOff();                   // Slå av alarm
         inputCode = "";               // Nullstill input
@@ -103,7 +107,7 @@ void loop() {
   }
 
   // --- Sjekk dørbrudd ---
-  if(digitalRead(DOOR_SENSOR)==LOW){ // Lav = dør åpnet
+  if(digitalRead(DOOR_SENSOR)==LOW) { // Lav = dør åpnet
     Serial.println("Dørbrudd registrert!");
     alarmOn = true;                  // Sett alarm på
     digitalWrite(RED_LED,HIGH);      // Rød LED
@@ -114,9 +118,12 @@ void loop() {
   display.clearDisplay();             // Rydd skjerm
   display.setCursor(0,0);             // Start øverst
   display.println("Smart Alarm");    
-  display.print("Kode: "); display.println(inputCode); 
-  display.print("Alarm: "); display.println(alarmOn ? "ON" : "OFF");
-  display.print("Lås: "); display.println(digitalRead(MOTOR_LOCK)==LOW ? "OPEN" : "LOCKED");
+  display.print("Kode: "); 
+  display.println(inputCode); 
+  display.print("Alarm: "); 
+  display.println(alarmOn ? "ON" : "OFF");
+  display.print("Lås: "); 
+  display.println(digitalRead(MOTOR_LOCK)==LOW ? "OPEN" : "LOCKED");
   display.display();                  // Oppdater skjerm
 
   delay(100);                         // Kort delay for loop

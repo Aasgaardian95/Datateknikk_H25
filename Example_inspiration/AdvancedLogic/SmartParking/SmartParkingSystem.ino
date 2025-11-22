@@ -48,7 +48,8 @@ void loop() {
   // Regn om til avstand i cm
   distance = duration * 0.034 / 2; 
 
-  Serial.print("Avstand: "); Serial.print(distance); Serial.println(" cm");
+  Serial.print("Avstand: "); 
+  Serial.print(distance); Serial.println(" cm");
 
   // LED-stripe visualisering
   int ledsToLight = map(distance, 0, 100, NUM_PIXELS, 0); // Flere cm → færre LEDer
