@@ -17,6 +17,7 @@ enum State // Definerer en enum med navn på alle tilstander
   RED,
   EMERGENCY
 };
+
 State state = GREEN;          // Starttilstanden er GREEN
 unsigned long lastChange = 0; // Variabel for å lagre tidspunktet siste state-endring skjedde
 
