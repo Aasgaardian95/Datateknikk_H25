@@ -177,7 +177,7 @@ void loop()
     delay(50);
   }
 
-  // Hvis temperaturen er mellom de to terskelverdiene (21-22 grader) for varmer, lyser blått lys og motor varmer opp rommet
+  // Hvis temperaturen er mellom de to terskelverdiene (21-22 grader), starter varmeren og blått lys tennes
   else if (myBME280.readTempC() < heaterUpperThreshold && myBME280.readTempC() > heaterLowerThreshold)
   {
     digitalWrite(ledBlue, HIGH);
